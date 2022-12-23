@@ -1,0 +1,195 @@
+<!-- mengambil data companies dan companies.Courses -->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<!-- Bootstrap CSS -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="/css/style.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+		/>
+		<title>Partners LesGO</title>
+	</head>
+	<body>
+		<header id="header">
+			<nav
+				class="navbar navbar-expand-lg bg-white navbar-light p-3 navbar-partner"
+			>
+				<div class="container">
+					<a class="navbar-brand" href="#"
+						><img src="/images/logo.png" alt="" width="70px"
+					/></a>
+					<button
+						class="navbar-toggler"
+						type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#navbarNavAltMarkup"
+						aria-controls="navbarNavAltMarkup"
+						aria-expanded="false"
+						aria-label="Toggle navigation"
+					>
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div
+						class="collapse navbar-collapse justify-content-end"
+						id="navbarNavAltMarkup"
+					>
+						<div class="navbar-nav">
+							<a class="nav-link mx-3" aria-current="page" href="/">Home</a>
+							<a class="nav-link mx-3" href="/#course">Courses</a>
+							<a class="nav-link active mx-3" href="/partners">Partners</a>
+						</div>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<main class="container" style="min-height: 70vh">
+			<div class="card mt-4">
+				<div
+					class="card-header px-4 d-flex justify-content-between align-items-center"
+				>
+					<div class="btn-group btn-group-sm">
+						<a href="/partners" class="btn btn-primary active px-4" aria-current="page"
+							>Partners</a
+						>
+						<a href="/courses" class="btn btn-secondary px-4">Courses</a>
+					</div>
+					<h5 class="mb-0">Company Partners</h5>
+					<a href="/partners/create"
+						><button
+							class="btn btn-primary btn-sm px-4"
+							style="border-radius: 8px !important"
+						>
+							Add Partner
+						</button></a
+					>
+				</div>
+				<div class="card-body">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th style="width: 1% !important">No</th>
+								<th style="width: 19% !important">Name</th>
+								<th style="width: 12% !important">Address</th>
+								<th style="width: 10% !important">Phone</th>
+								<th style="width: 8% !important">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% companies.forEach((e, i)=> { %>
+							<tr>
+								<td scope="row" class="text-center py-auto"><%= ++i %></td>
+								<td>
+									<div class="d-flex align-items-center">
+										<i class="bi-building pe-2"></i>
+										<div class="w-100 column-name">
+											<p class="mb-0"><%= e.name %></p>
+											<% if(!e.Courses.length) { %>
+											<p class="mb-0">-</p>
+											<% } else { %>
+											<div class="d-flex justify-content-start flex-wrap">
+												<% e.Courses.forEach((el, i) => { %> <%
+												if(e.Courses.length - 1 == i) { %>
+												<p class="mb-0 me-1 text-danger"><%= el.name %>.</p>
+												<% } else { %>
+												<p class="mb-0 me-1 text-danger"><%= el.name %>,</p>
+												<% } %> <% }) %>
+											</div>
+											<% } %>
+										</div>
+									</div>
+								</td>
+								<td><%= e.address %></td>
+								<td><%= e.no_telp %></td>
+								<td>
+									<a href=""><span class="badge bg-info">Update</span></a> |
+									<a href=""><span class="badge bg-danger">Delete</span></a>
+								</td>
+							</tr>
+							<% }) %>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</main>
+		<footer style="min-height: 100px">
+			<div class="container py-2">
+				<div class="d-flex justify-content-between align-items-center">
+					<div class="d-flex">
+						<a
+							href="/#header"
+							class="nav-link text-uppercase text-light"
+							style="color: black; font-size: 14.5px; letter-spacing: 0.6px"
+							>Home</a
+						>
+						<a
+							href="/#course"
+							class="nav-link text-uppercase text-light"
+							style="color: black; font-size: 14.5px; letter-spacing: 0.6px"
+							>Courses</a
+						>
+						<a
+							href="#header"
+							class="nav-link text-uppercase text-light"
+							style="color: black; font-size: 14.5px; letter-spacing: 0.6px"
+							>Partners</a
+						>
+					</div>
+					<div>
+						<a
+							href="#header"
+							class="nav-link text-center fw-bold text-uppercase text-light d-flex flex-column"
+							style="letter-spacing: 2px; font-size: 14px"
+							><i class="bi-caret-up-fill"></i>Back To Top</a
+						>
+					</div>
+				</div>
+				<hr style="color: #adb5bd" class="my-1" />
+				<div class="mb-3">
+					<p
+						class="text-uppercase footer-text text-center my-3"
+						style="letter-spacing: 0.6px"
+					>
+						Develop by
+						<a
+							href="https://github.com/fahrularsyandra"
+							style="text-decoration: none; color: white; font-weight: bold"
+							>Arsya</a
+						>
+						&
+						<a
+							href="https://github.com/bddd-bags"
+							style="text-decoration: none; color: white; font-weight: bold"
+							>Bagas</a
+						>
+						2022
+					</p>
+				</div>
+			</div>
+		</footer>
+		<!-- Optional JavaScript; choose one of the two! -->
+
+		<!-- Option 1: Bootstrap Bundle with Popper -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+			crossorigin="anonymous"
+		></script>
+
+		<!-- Option 2: Separate Popper and Bootstrap JS -->
+		<!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+	</body>
+</html>

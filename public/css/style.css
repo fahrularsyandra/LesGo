@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Poppins&family=Source+Sans+Pro&display=swap");
+
+header {
+	font-family: "Poppins", sans-serif;
+	/* object-fit: cover;
+	object-position: center; */
+}
+
+.background-header {
+	min-height: 90vh;
+	background: radial-gradient(
+			189.96% 61.18% at 100% 43.82%,
+			rgba(255, 181, 72, 0) 0%,
+			rgba(44, 42, 38, 0.803) 73.22%,
+			#08090a 99.74%
+		),
+		url("../images/background.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-position-x: center;
+	background-position-x: center;
+}
+
+.navbar-nav a {
+	letter-spacing: 1.3px;
+}
+
+.header-start {
+	background-color: rgb(255, 255, 255);
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	/* background-color: rgb(37, 37, 37); */
+	width: 70%;
+	border-radius: 100px;
+}
+
+/* .header-background {
+	max-width: 100%;
+	height: calc(90vh - 58px);
+	background: radial-gradient(
+			189.96% 61.18% at 100% 43.82%,
+			rgba(255, 181, 72, 0) 0%,
+			rgba(44, 42, 38, 0.803) 73.22%,
+			#08090a 99.74%
+		),
+		url("../images/background.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-position-x: center;
+	background-position-x: center;
+} */
+
+.header-content {
+	min-height: calc(90vh - 73.58px);
+}
+
+.header-content h1 {
+	font-size: 76px;
+	letter-spacing: 2px;
+	text-shadow: 3px 4px 4px #000000;
+}
+
+.header-content p {
+	font-size: 20px;
+	letter-spacing: 5px;
+	text-shadow: 2px 2px 4px #000000;
+}
+
+/* body {
+  background-color: #f0f0f0;
+} */
+
+#course h2 {
+	text-decoration: underline #505050;
+}
+
+.card {
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+/* partner */
+.navbar-partner {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.section-main-head {
+  min-height: 50px;
+  box-shadow: #dcdcdc 6px 2px 16px 0px, rgba(255, 255, 255, 0.418) -6px -2px 16px 0px;
+  border-radius: 8px;
+}
+
+tbody, form {
+  font-size: 14px !important;
+}
+
+tbody td{
+  vertical-align: middle !important;
+}
+
+footer {
+	font-family: "Source Sans Pro", sans-serif;
+	background-color: rgba(37, 37, 37, 0.959);
+	color: white;
+}
+
+footer .footer-text {
+	font-size: 14px;
+}
+
+.mh-100 {
+	min-height: 100vh !important;
+}
