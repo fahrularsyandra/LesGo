@@ -1,5 +1,4 @@
-const { where } = require("sequelize");
-const { Company, Course } = require("../models");
+const { Company, Course, User } = require("../models");
 
 class CompanyController {
 	static async get(req, res) {
@@ -10,6 +9,7 @@ class CompanyController {
 						model: Course,
 					},
 				],
+				order: [["id", "asc"]],
 			});
 			// res.json({ data: companies })
 			res.render("partners/index.ejs", { companies });
@@ -30,8 +30,19 @@ class CompanyController {
 					},
 				],
 			});
+
+			const users = await User.findAll({
+				include: [
+					{
+						model: Company,
+						where: { id: +req.params.id },
+					},
+					Course,
+				],
+				order: [["id", "asc"]],
+			});
 			// res.json({ data: company })
-			res.render("partners/detail.ejs", { company: company[0] });
+			res.render("partners/detail.ejs", { company: company[0], users });
 		} catch (error) {
 			res.json({ error: error });
 		}

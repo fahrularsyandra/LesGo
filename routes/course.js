@@ -4,7 +4,6 @@ const CourseController = require('../controllers/CourseController');
 
 courseRoute.get('/', CourseController.get)
 courseRoute.get("/create", CourseController.add);
-// courseRoute.get('/:id', CourseController.getSpesificCompany)
 courseRoute.post("/create", CourseController.create);
 courseRoute.get("/delete/:id", CourseController.delete);
 courseRoute.get("/update/:id", CourseController.edit);

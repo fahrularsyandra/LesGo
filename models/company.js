@@ -12,8 +12,15 @@ module.exports = (sequelize, DataTypes) => {
         static associate(models) {
             // define association here
             Company.hasMany(models.Course, {
-                foreignKey: 'company_id'
-            })
+							foreignKey: "company_id",
+							onDelete: "CASCADE",
+							onUpdate: "CASCADE",
+						});
+
+						Company.belongsToMany(models.User, {
+							through: models.UserCourse,
+							foreignKey: "company_id",
+						});
         }
         toJSON() {
             return {...this.get(), id: undefined }

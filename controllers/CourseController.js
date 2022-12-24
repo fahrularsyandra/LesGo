@@ -5,6 +5,7 @@ class CourseController {
 		try {
 			const courses = await Course.findAll({
 				include: [Company],
+				order: [["id", "asc"]],
 			});
 			// res.json({ data: courses })
 			res.render("courses/index.ejs", { courses });
@@ -12,19 +13,6 @@ class CourseController {
 			res.json({ error: error });
 		}
 	}
-
-	// static async getSpesificCompany(req, res) {
-	// 	try {
-	// 		const courses = await Course.findAll({
-	// 			where: {
-	// 				company_id: req.params.id,
-	// 			},
-	// 		});
-	// 		res.json({ data: courses });
-	// 	} catch (error) {
-	// 		res.json({ error: error });
-	// 	}
-	// }
 
 	static add = async (req, res) => {
 		try {

@@ -14,4 +14,5 @@ module.exports = {
 	},
 	CompanyController: require("./CompanyController"),
 	CourseController: require("./CourseController"),
+	UserController: require("./UserController"),
 };

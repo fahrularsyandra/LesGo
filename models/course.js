@@ -15,6 +15,12 @@ module.exports = (sequelize, DataTypes) => {
 				Course.belongsTo(models.Company, {
 					foreignKey: "company_id",
 					onDelete: "CASCADE",
+					onUpdate: "CASCADE",
+				});
+
+				Course.belongsToMany(models.User, {
+					through: models.UserCourse,
+					foreignKey: "course_id",
 				});
 			}
 			toJSON() {
