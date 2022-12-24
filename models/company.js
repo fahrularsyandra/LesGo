@@ -19,13 +19,16 @@ module.exports = (sequelize, DataTypes) => {
             return {...this.get(), id: undefined }
         }
     }
-    Company.init({
-        name: DataTypes.STRING,
-        no_telp: DataTypes.INTEGER,
-        address: DataTypes.STRING
-    }, {
-        sequelize,
-        modelName: 'Company',
-    });
+    Company.init(
+			{
+				name: DataTypes.STRING,
+				no_telp: DataTypes.BIGINT,
+				address: DataTypes.STRING,
+			},
+			{
+				sequelize,
+				modelName: "Company",
+			},
+		);
     return Company;
 };

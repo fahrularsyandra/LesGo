@@ -1,11 +1,12 @@
-const company = require('../models/company');
+const route = require("express").Router();
+const { homePage } = require("../controllers");
 
-const route = require('express').Router();
+route.get("/", homePage);
 
-const companyRoutes = require('./company');
-route.use("/company", companyRoutes)
+const companyRoutes = require("./company");
+route.use("/partners", companyRoutes);
 
-const courseRoutes = require('./course');
-route.use("/course", courseRoutes)
+const courseRoutes = require("./course");
+route.use("/courses", courseRoutes);
 
-module.exports = route
+module.exports = route;

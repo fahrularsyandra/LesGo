@@ -1,9 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Poppins&family=Source+Sans+Pro&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Poppins&family=Quicksand&family=Source+Sans+Pro&display=swap');
 
 header {
 	font-family: "Poppins", sans-serif;
 	/* object-fit: cover;
 	object-position: center; */
+}
+
+main {
+	font-family: "Source Sans Pro", sans-serif;
+	font-size: 16px;
+	letter-spacing: 0.5px !important;
 }
 
 .background-header {
@@ -34,22 +40,6 @@ header {
 	border-radius: 100px;
 }
 
-/* .header-background {
-	max-width: 100%;
-	height: calc(90vh - 58px);
-	background: radial-gradient(
-			189.96% 61.18% at 100% 43.82%,
-			rgba(255, 181, 72, 0) 0%,
-			rgba(44, 42, 38, 0.803) 73.22%,
-			#08090a 99.74%
-		),
-		url("../images/background.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-	background-position-x: center;
-	background-position-x: center;
-} */
 
 .header-content {
 	min-height: calc(90vh - 73.58px);

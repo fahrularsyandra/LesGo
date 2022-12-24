@@ -64,7 +64,7 @@
 						>
 						<a href="/courses" class="btn btn-secondary px-4">Courses</a>
 					</div>
-					<h5 class="mb-0">Company Partners</h5>
+					<h5 class="mb-0 d-none d-md-block">Company Partners</h5>
 					<a href="/partners/create"
 						><button
 							class="btn btn-primary btn-sm px-4"
@@ -75,6 +75,7 @@
 					>
 				</div>
 				<div class="card-body">
+					<div class="table-responsive">
 					<table class="table table-striped">
 						<thead>
 							<tr>
@@ -98,12 +99,13 @@
 											<p class="mb-0">-</p>
 											<% } else { %>
 											<div class="d-flex justify-content-start flex-wrap">
-												<% e.Courses.forEach((el, i) => { %> <%
-												if(e.Courses.length - 1 == i) { %>
+												<% e.Courses.forEach((el, i) => { %> 
+												<% if(e.Courses.length - 1 == i) { %>
 												<p class="mb-0 me-1 text-danger"><%= el.name %>.</p>
 												<% } else { %>
 												<p class="mb-0 me-1 text-danger"><%= el.name %>,</p>
-												<% } %> <% }) %>
+												<% } %> 
+												<% }) %>
 											</div>
 											<% } %>
 										</div>
@@ -112,13 +114,14 @@
 								<td><%= e.address %></td>
 								<td><%= e.no_telp %></td>
 								<td>
-									<a href=""><span class="badge bg-info">Update</span></a> |
-									<a href=""><span class="badge bg-danger">Delete</span></a>
+									<a href="/partners/update/<%= e.id %>"><span class="badge bg-warning">Update</span></a> |
+									<a href="/partners/delete/<%= e.id %>"><span class="badge bg-danger">Delete</span></a>
 								</td>
 							</tr>
 							<% }) %>
 						</tbody>
 					</table>
+				</div>
 				</div>
 			</div>
 		</main>
@@ -160,7 +163,7 @@
 						class="text-uppercase footer-text text-center my-3"
 						style="letter-spacing: 0.6px"
 					>
-						Develop by
+						Developed by
 						<a
 							href="https://github.com/fahrularsyandra"
 							style="text-decoration: none; color: white; font-weight: bold"

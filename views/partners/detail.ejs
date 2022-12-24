@@ -57,11 +57,23 @@
 				class="d-flex justify-content-center align-items-center"
 				style="min-height: calc(60vh - (73.58px * 2))"
 			>
-				<h3 class="text-uppercase fw-bold"><%= company.name %></h3>
+				<h2
+					class="text-uppercase fw-bold"
+					style="
+						letter-spacing: 2.5px;
+						color: rgb(39, 39, 39);
+						text-shadow: 3px 4px 4px rgba(71, 71, 71, 0.466);
+					"
+				>
+					<%= company.name %>
+				</h2>
 			</section>
-			<section class="bg-white navbar-partner d-flex" style="min-height: 73.58px; width: 100%;">
+			<section
+				class="bg-white navbar-partner d-flex flex-column flex-md-row"
+				style="min-height: 73.58px; width: 100%"
+			>
 				<div
-					class="w-50 d-flex flex-column justify-content-center align-items-center px-0 py-2"
+					class="w-100 d-flex flex-column justify-content-center align-items-center px-0 py-2"
 				>
 					<h6 style="text-decoration: underline" class="text-uppercase fw-bold">
 						Courses
@@ -72,9 +84,9 @@
 						<% }) %>
 					</div>
 				</div>
-        <div style="border: 1px solid #dcdcdc;"></div>
+				<div style="border: 1px solid #dcdcdc"></div>
 				<div
-					class="w-50 d-flex flex-column justify-content-center align-items-center px-0 py-2"
+					class="w-100 d-flex flex-column justify-content-center align-items-center px-0 py-2"
 				>
 					<h6 style="text-decoration: underline" class="fw-bold">Address</h6>
 					<p class="mb-0"><%= company.address %></p>
@@ -82,12 +94,12 @@
 			</section>
 		</header>
 		<main class="container py-4" style="min-height: 65vh">
-			<div class="card mt-4">
+			<div class="card my-4">
 				<div
 					class="card-header px-4 d-flex justify-content-between align-items-center"
 				>
 					<h5 class="mb-0">Participants</h5>
-					<a href="/partners/create"
+					<a href="/partners/<%= company.id %>/users/create#main"
 						><button
 							class="btn btn-primary btn-sm px-4"
 							style="border-radius: 8px !important"
@@ -137,19 +149,19 @@
 						class="text-uppercase footer-text text-center my-3"
 						style="letter-spacing: 0.6px"
 					>
-          Develop by
-          <a
-            href="https://github.com/fahrularsyandra"
-            style="text-decoration: none; color: white; font-weight: bold"
-            >Arsya</a
-          >
-          &
-          <a
-            href="https://github.com/bddd-bags"
-            style="text-decoration: none; color: white; font-weight: bold"
-            >Bagas</a
-          >
-          2022
+          Developed by
+						<a
+							href="https://github.com/fahrularsyandra"
+							style="text-decoration: none; color: white; font-weight: bold"
+							>Arsya</a
+						>
+						&
+						<a
+							href="https://github.com/bddd-bags"
+							style="text-decoration: none; color: white; font-weight: bold"
+							>Bagas</a
+						>
+						2022
 					</p>
 				</div>
 			</div>

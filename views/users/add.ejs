@@ -57,14 +57,23 @@
 				class="d-flex justify-content-center align-items-center"
 				style="min-height: calc(60vh - (73.58px * 2))"
 			>
-				<h3 class="text-uppercase fw-bold"><%= company.name %></h3>
+				<h2
+					class="text-uppercase fw-bold"
+					style="
+						letter-spacing: 2.5px;
+						color: rgb(39, 39, 39);
+						text-shadow: 3px 4px 4px rgba(71, 71, 71, 0.466);
+					"
+				>
+					<%= company.name %>
+				</h2>
 			</section>
 			<section
-				class="bg-white navbar-partner d-flex"
+				class="bg-white navbar-partner d-flex flex-column flex-md-row"
 				style="min-height: 73.58px; width: 100%"
 			>
 				<div
-					class="w-50 d-flex flex-column justify-content-center align-items-center px-0 py-2"
+					class="w-100 d-flex flex-column justify-content-center align-items-center px-0 py-2"
 				>
 					<h6 style="text-decoration: underline" class="text-uppercase fw-bold">
 						Courses
@@ -77,15 +86,15 @@
 				</div>
 				<div style="border: 1px solid #dcdcdc"></div>
 				<div
-					class="w-50 d-flex flex-column justify-content-center align-items-center px-0 py-2"
+					class="w-100 d-flex flex-column justify-content-center align-items-center px-0 py-2"
 				>
 					<h6 style="text-decoration: underline" class="fw-bold">Address</h6>
 					<p class="mb-0"><%= company.address %></p>
 				</div>
 			</section>
 		</header>
-		<main class="container py-4" style="min-height: 65vh">
-			<div class="card mt-4">
+		<main id="main" class="container py-4" style="min-height: 65vh">
+			<div class="card my-4">
 				<div
 					class="card-header px-4 d-flex justify-content-between align-items-center"
 				>
@@ -93,18 +102,18 @@
 				</div>
 				<div class="card-body">
 					<form action="/partners/<%= company.id %>/users/coba " method="post">
-						<input type="hidden" name="company_id" value="<%= company.id %> ">
-							<div class="mb-3">
-								<label for="name" class="form-label">Name</label>
-								<input
-									type="text"
-									class="form-control form-control-sm"
-									id="name"
-									name="name"
-									aria-describedby="name"
-								/>
-								<div id="name" class="form-text">Input name company.</div>
-							</div>
+						<input type="hidden" name="company_id" value="<%= company.id %> " />
+						<div class="mb-3">
+							<label for="name" class="form-label">Name</label>
+							<input
+								type="text"
+								class="form-control form-control-sm"
+								id="name"
+								name="name"
+								aria-describedby="name"
+							/>
+							<div id="name" class="form-text">Input name company.</div>
+						</div>
 						<div class="row">
 							<div class="mb-3 col-md-5">
 								<label for="no_telp" class="form-label">Phone</label>
@@ -130,7 +139,12 @@
 							</div>
 							<div class="mb-3 col-md-5">
 								<label for="gender" class="form-label">Gender</label>
-								<select class="form-select form-select-sm" id="gender" name="gender" aria-label=".form-select-sm example">
+								<select
+									class="form-select form-select-sm"
+									id="gender"
+									name="gender"
+									aria-label=".form-select-sm example"
+								>
 									<option value="MALE">MALE</option>
 									<option value="FEMALE">FEMALE</option>
 								</select>
@@ -139,16 +153,27 @@
 						</div>
 						<div class="mb-3">
 							<label for="course" class="form-label">Course</label>
+							<hr class="mt-0" />
 							<div class="d-flex flex-wrap">
-								<% company.Courses.forEach(e => { %> 
+								<% company.Courses.forEach(e => { %>
 								<div class="form-check me-4">
-									<input class="form-check-input" name="course_id" type="checkbox" value="<%= e.id %>" id="flexCheckDefault<%= e.id %>">
-									<label class="form-check-label" for="flexCheckDefault<%= e.id %>">
-										<%= e.name %> 
+									<input
+										class="form-check-input"
+										name="course_id"
+										type="checkbox"
+										value="<%= e.id %>"
+										id="flexCheckDefault<%= e.id %>"
+									/>
+									<label
+										class="form-check-label"
+										for="flexCheckDefault<%= e.id %>"
+									>
+										<%= e.name %>
 									</label>
 								</div>
-								<% }) %> 
+								<% }) %>
 							</div>
+							<hr class="mb-0" />
 							<div id="name" class="form-text">Select the course you want</div>
 						</div>
 						<div class="mb-3">
@@ -157,12 +182,14 @@
 								class="form-control form-control-sm"
 								name="address"
 								id="address"
-								style="height: 100px"
+								style="height: 50px"
 							></textarea>
 							<div id="address" class="form-text">Input Address.</div>
 						</div>
 						<div class="d-flex justify-content-end">
-							<a href="/partners/<%= company.id %> " class="btn btn-secondary btn-sm mx-2 px-4"
+							<a
+								href="/partners/<%= company.id %> "
+								class="btn btn-secondary btn-sm mx-2 px-4"
 								>Back</a
 							>
 							<button type="submit" class="btn btn-primary btn-sm mx-2 px-4">
@@ -211,7 +238,7 @@
 						class="text-uppercase footer-text text-center my-3"
 						style="letter-spacing: 0.6px"
 					>
-						Develop by
+						Developed by
 						<a
 							href="https://github.com/fahrularsyandra"
 							style="text-decoration: none; color: white; font-weight: bold"

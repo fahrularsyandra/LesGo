@@ -59,12 +59,15 @@
 					class="card-header px-4 d-flex justify-content-between align-items-center"
 				>
 					<div class="btn-group btn-group-sm">
-						<a href="/partners" class="btn btn-secondary px-4" aria-current="page"
+						<a
+							href="/partners"
+							class="btn btn-secondary px-4"
+							aria-current="page"
 							>Partners</a
 						>
 						<a href="/courses" class="btn btn-primary active px-4">Courses</a>
 					</div>
-					<h5 class="mb-0">Courses</h5>
+					<h5 class="mb-0 d-none d-md-block">Courses</h5>
 					<a href="/courses/create"
 						><button
 							class="btn btn-primary btn-sm px-4"
@@ -75,33 +78,37 @@
 					>
 				</div>
 				<div class="card-body">
-					<table class="table table-striped">
-						<thead>
-							<tr>
-								<th style="width: 1% !important">No</th>
-								<th style="width: 19% !important">Company Name</th>
-								<th style="width: 19% !important">Course</th>
-								<th style="width: 19% !important">Course Duration</th>
-								<th style="width: 19% !important">Price</th>
-								<th style="width: 13% !important">Action</th>
-							</tr>
-						</thead>
-						<tbody>
-							<% courses.forEach((e, i)=> { %>
-							<tr>
-								<td scope="row" class="text-center py-auto"><%= ++i %></td>
-								<td><%= e.Company.name %> </td>
-								<td><%= e.name %></td>
-								<td><%= e.duration %> Bulan</td>
-								<td><%= e.price %></td>
-								<td>
-									<a href=""><span class="badge bg-info">Update</span></a> |
-									<a href=""><span class="badge bg-danger">Delete</span></a>
-								</td>
-							</tr>
-							<% }) %>
-						</tbody>
-					</table>
+					<div class="table-responsive">
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th style="width: 1% !important">No</th>
+									<th style="width: 19% !important">Company Name</th>
+									<th style="width: 19% !important">Course</th>
+									<th style="width: 19% !important">Course Duration</th>
+									<th style="width: 19% !important">Price</th>
+									<th style="width: 13% !important">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<% courses.forEach((e, i)=> { %>
+								<tr>
+									<td scope="row" class="text-center py-auto"><%= ++i %></td>
+									<td><%= e.Company.name %></td>
+									<td><%= e.name %></td>
+									<td><%= e.duration %> Month</td>
+									<td>Rp. <%= e.price %></td>
+									<td>
+										<a href="/courses/update/<%= e.id %>"><span class="badge bg-warning">Update</span></a> |
+										<a href="/courses/delete/<%= e.id %>"
+											><span class="badge bg-danger">Delete</span></a
+										>
+									</td>
+								</tr>
+								<% }) %>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</main>
@@ -143,7 +150,7 @@
 						class="text-uppercase footer-text text-center my-3"
 						style="letter-spacing: 0.6px"
 					>
-						Develop by
+						Developed by
 						<a
 							href="https://github.com/fahrularsyandra"
 							style="text-decoration: none; color: white; font-weight: bold"
