@@ -9,7 +9,7 @@ module.exports = {
 
 			res.render("index.ejs", { companies });
 		} catch (error) {
-			res.send(error);
+			res.render("error/errorPage.ejs", { message: error.message });
 		}
 	},
 	CompanyController: require("./CompanyController"),

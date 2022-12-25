@@ -10,7 +10,7 @@ class CourseController {
 			// res.json({ data: courses })
 			res.render("courses/index.ejs", { courses });
 		} catch (error) {
-			res.json({ error: error });
+			res.render("error/errorPage.ejs", { message: error.message });
 		}
 	}
 
@@ -20,7 +20,7 @@ class CourseController {
 
 			res.render("courses/store.ejs", { companies });
 		} catch (error) {
-			res.json(error);
+			res.render("error/errorPage.ejs", { message: error.message });
 		}
 	};
 
@@ -30,7 +30,7 @@ class CourseController {
 			res.redirect("/courses");
 			// res.json({ message: "Course has been added!", data: courses });
 		} catch (error) {
-			res.json({ error: error });
+			res.render("error/errorPage.ejs", { message: error.message });
 		}
 	}
 
@@ -41,7 +41,7 @@ class CourseController {
 			// res.json(course.company_id);
 			res.render("courses/update.ejs", { course, companies });
 		} catch (error) {
-			res.send(error);
+			res.render("error/errorPage.ejs", { message: error.message });
 		}
 	};
 
@@ -52,7 +52,7 @@ class CourseController {
 			});
 			res.redirect("/courses");
 		} catch (error) {
-			res.send(error);
+			res.render("error/errorPage.ejs", { message: error.message });
 		}
 	};
 
@@ -63,7 +63,7 @@ class CourseController {
 			});
 			res.redirect("/courses");
 		} catch (error) {
-			res.json(error);
+			res.render("error/errorPage.ejs", { message: error.message });
 		}
 	};
 }

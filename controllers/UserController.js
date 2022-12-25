@@ -9,7 +9,7 @@ class UserController {
 			});
 			res.render("users/store.ejs", { company });
 		} catch (error) {
-			res.json(error);
+			res.render("error/errorPage.ejs", { message: error.message });
 		}
 	};
 
@@ -47,7 +47,7 @@ class UserController {
 
 			res.redirect(`/partners/${partnerId}#main`);
 		} catch (error) {
-			res.json(error.message);
+			res.render("error/errorPage.ejs", { message: error.message });
 		}
 	};
 
@@ -69,10 +69,6 @@ class UserController {
 				],
 			});
 
-			// let result = {
-			// 	user,
-			// };
-
 			// res.json(user);
 			res.render("users/update.ejs", {
 				company,
@@ -80,7 +76,7 @@ class UserController {
 				courseId: user.Courses.map((course) => course.id),
 			});
 		} catch (error) {
-			res.json(error);
+			res.render("error/errorPage.ejs", { message: error.message });
 		}
 	};
 
@@ -121,7 +117,7 @@ class UserController {
 
 			res.redirect(`/partners/${partnerId}#main`);
 		} catch (error) {
-			res.json(error);
+			res.render("error/errorPage.ejs", { message: error.message });
 		}
 	};
 
@@ -132,7 +128,7 @@ class UserController {
 			});
 			res.redirect(`/partners/${req.params.partnerId}#main`);
 		} catch (error) {
-			res.json(error);
+			res.render("error/errorPage.ejs", { message: error.message });
 		}
 	};
 }

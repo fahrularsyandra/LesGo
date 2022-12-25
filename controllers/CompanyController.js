@@ -14,7 +14,7 @@ class CompanyController {
 			// res.json({ data: companies })
 			res.render("partners/index.ejs", { companies });
 		} catch (error) {
-			res.json({ error: error });
+			res.render("error/errorPage.ejs", { message: error.message });
 		}
 	}
 
@@ -44,7 +44,7 @@ class CompanyController {
 			// res.json({ data: company })
 			res.render("partners/detail.ejs", { company: company[0], users });
 		} catch (error) {
-			res.json({ error: error });
+			res.render("error/errorPage.ejs", { message: error.message });
 		}
 	}
 
@@ -56,7 +56,7 @@ class CompanyController {
 			// res.json({ message: "company has been added!", data: companies });
 			res.redirect("/partners");
 		} catch (error) {
-			res.json({ error: error });
+			res.render("error/errorPage.ejs", { message: error.message });
 		}
 	}
 
@@ -66,7 +66,7 @@ class CompanyController {
 
 			res.render("partners/update.ejs", { company });
 		} catch (error) {
-			res.send(error);
+			res.render("error/errorPage.ejs", { message: error.message });
 		}
 	};
 
@@ -76,7 +76,7 @@ class CompanyController {
 
 			res.redirect("/partners");
 		} catch (error) {
-			res.send(error);
+			res.render("error/errorPage.ejs", { message: error.message });
 		}
 	};
 
@@ -87,7 +87,7 @@ class CompanyController {
 			});
 			res.redirect("/partners");
 		} catch (error) {
-			res.json(error);
+			res.render("error/errorPage.ejs", { message: error.message });
 		}
 	};
 }

@@ -12,4 +12,9 @@ route.use("/courses", courseRoutes);
 const userRoutes = require("./user");
 route.use("/partners", userRoutes);
 
+
+route.all("*", (req, res) => {
+	res.render("error/404.ejs", { message: "PAGE_NOT_FOUND!" });
+});
+
 module.exports = route;
