@@ -1,4 +1,5 @@
 const { Course, Company } = require("../models");
+const Joi = require('joi');
 
 class CourseController {
     static async get(req, res) {
@@ -27,11 +28,12 @@ class CourseController {
 
     static async create(req, res) {
         try {
+            // res.json(req.body);
             const schema = Joi.object({
                 name: Joi.string().required(),
-                company_id: number().required(),
-                price: number().required(),
-                duration: number().required()
+                company_id: Joi.number().required(),
+                price: Joi.number().required(),
+                duration: Joi.number().required()
             })
             const { error } = schema.validate(req.body)
             if (error) {

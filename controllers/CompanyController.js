@@ -1,4 +1,5 @@
 const { Company, Course, User } = require("../models");
+const Joi = require('joi');
 
 class CompanyController {
     static async get(req, res) {
