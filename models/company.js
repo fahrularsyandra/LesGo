@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
             Company.hasMany(models.Course, {
                 foreignKey: 'company_id'
             })
+            Company.belongsToMany(models.User, { through: models.UserCourse })
         }
         toJSON() {
             return {...this.get(), id: undefined }

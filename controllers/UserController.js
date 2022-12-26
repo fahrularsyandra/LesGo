@@ -1,23 +1,20 @@
-const { Company, Course } = require('../models');
+const { User } = require('../models');
 const Joi = require('joi');
 
-class CompanyController {
+class UserController {
     static async get(req, res) {
         try {
-            const companies = await Company.findAll({
-                include: [{
-                    model: Course
-                }]
-            })
-            res.json({ data: companies })
-        } catch (error) {
-            res.json({ error: error })
+            const users = await User.findOne()
+            const company = users.createCompany(1)
+            return res.json({ data: company })
+        } catch (err) {
+            res.json({ error: err })
         }
     }
 
-    static async getSpesificCompany(req, res) {
+    static async getSpesificUser(req, res) {
         try {
-            const companies = await Company.findAll({
+            const users = await User.findAll({
                 where: {
                     id: req.params.id
                 },
@@ -25,7 +22,7 @@ class CompanyController {
                     model: Course
                 }]
             })
-            res.json({ data: companies })
+            res.json({ data: users })
         } catch (error) {
             res.json({ error: error })
         }
@@ -35,15 +32,16 @@ class CompanyController {
         try {
             const schema = Joi.object({
                 name: Joi.string().required(),
-                no_telp: Joi.number().required(),
-                address: Joi.string().required()
+                age: Joi.number().required(),
+                address: Joi.string().required(),
+                gender: Joi.string().required()
             })
             const { error } = schema.validate(req.body)
             if (error) {
                 return res.json({ message: error.details[0].message })
             }
-            const companies = await Company.create(req.body)
-            return res.json({ message: "company has been added!", data: companies })
+            const users = await User.create(req.body)
+            return res.json({ message: "User has been added!", data: users })
 
         } catch (error) {
             res.json({ error: error })
@@ -51,4 +49,4 @@ class CompanyController {
     }
 }
 
-module.exports = CompanyController
+module.exports = UserController
