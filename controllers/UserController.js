@@ -22,11 +22,12 @@ class UserController {
             const { name, age, gender, address, course_id: courses } = req.body;
             const partnerId = +req.params.partnerId;
             const schema = Joi.object({
-                name: Joi.string().required(),
-                age: Joi.number().required().greater(0),
-                address: Joi.string().required(),
-                gender: Joi.string().required(),
-            })
+							name: Joi.string().required(),
+							age: Joi.number().required().greater(0),
+							course_id: Joi.string().required(),
+							address: Joi.string().required(),
+							gender: Joi.string().required(),
+						});
             const { error } = schema.validate(req.body)
             if (error) {
                 res.render("error/errorPage.ejs", { message: error.details[0].message });
@@ -98,11 +99,12 @@ class UserController {
             const { name, age, gender, address, course_id: courses } = req.body;
             const partnerId = +req.params.partnerId;
             const schema = Joi.object({
-                name: Joi.string().required(),
-                age: Joi.number().required().greater(0),
-                address: Joi.string().required(),
-                gender: Joi.string().required(),
-            })
+							name: Joi.string().required(),
+							age: Joi.number().required().greater(0),
+							address: Joi.string().required(),
+							course_id: Joi.string().required(),
+							gender: Joi.string().required(),
+						});
             const { error } = schema.validate(req.body)
             if (error) {
                 res.render("error/errorPage.ejs", { message: error.details[0].message });
